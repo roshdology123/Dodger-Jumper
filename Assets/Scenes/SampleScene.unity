@@ -235,6 +235,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground04
       objectReference: {fileID: 0}
+    - target: {fileID: 155628, guid: a7817dc9ad2423344b2e740174f38c36, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 155632, guid: a7817dc9ad2423344b2e740174f38c36, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 455628, guid: a7817dc9ad2423344b2e740174f38c36, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -279,6 +287,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2521973629518257937, guid: a7817dc9ad2423344b2e740174f38c36, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e827eaf5506fced46943f4e24496b42d, type: 2}
+    - target: {fileID: 6642205795284768047, guid: a7817dc9ad2423344b2e740174f38c36, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e827eaf5506fced46943f4e24496b42d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7817dc9ad2423344b2e740174f38c36, type: 3}
 --- !u!1 &705507993
