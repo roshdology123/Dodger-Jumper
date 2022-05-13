@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         /// </summary>
         Direct
     }
+    public GameObject collectEffect;
 
     [SerializeField] private float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
@@ -23,6 +25,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     [SerializeField] private Rigidbody m_rigidBody = null;
 
     [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
+
 
     private float m_currentV = 0;
     private float m_currentH = 0;
@@ -51,6 +54,19 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Enemy Head"))
+        {
+            if (collectEffect)
+            {
+                Instantiate(collectEffect, transform.position, Quaternion.identity);
+            }
+            FindObjectOfType<AudioManager>().Play("EnemyDie");
+            Destroy(collision.transform.parent.gameObject);
+        }
+    }
+
+    /*private void OnCollisionEnter(Collision collision)
+    {
         ContactPoint[] contactPoints = collision.contacts;
         for (int i = 0; i < contactPoints.Length; i++)
         {
@@ -62,8 +78,10 @@ public class SimpleSampleCharacterControl : MonoBehaviour
                 }
                 m_isGrounded = true;
             }
+            
         }
-    }
+        
+    }*/
 
     private void OnCollisionStay(Collision collision)
     {
@@ -216,6 +234,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         if (!m_isGrounded && m_wasGrounded)
         {
             m_animator.SetTrigger("Jump");
+            FindObjectOfType<AudioManager>().Play("Jump");
         }
     }
 }
